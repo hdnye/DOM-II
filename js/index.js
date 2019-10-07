@@ -4,29 +4,29 @@
 
 // let count = 0;
 
-// let highLt = document.querySelectorAll('btn');
-// console.log(highLt);
+let button = document.querySelectorAll('.btn');
+console.log(button);
 
 
-// while (count < highLt.length) {
+button.forEach( b => {
 
 
-// hightLt[count].addEventListener('mouseover', (e) => {
+    b.addEventListener('mouseover', (e) => {
     
-//     e.target.style.backgroundcolor = 'red' ;
+        e.target.style.backgroundcolor = 'red' ;
 
-//     setTimeout(() => {
-//         e.target.style.color = '';
-//     }, 100);
+         setTimeout(() => {
+            e.target.style.color = '';
+         }, 100);
 
-//  }, false);
+  }, false);
 
-//  highLt[count].addEventListenter('click', (e) => {
+     b.addEventListenter('click', (e) => {
 
-//     e.target.style.visibility = 'hidden';
-//  } );
+         e.target.style.visibility = 'hidden';
+      } );
  
-// }
+ }, );
 
 /*--keydown--*/
 
@@ -46,7 +46,7 @@ console.log(para);
 
 /*--focus event--*/
 
-let nav = document.querySelector('.nav');
+let nav = document.querySelector('nav');
 console.log(nav);
 
 nav.addEventListener('focusin', (e) => {
@@ -57,7 +57,6 @@ nav.addEventListener('focusout', (e) => {
   e.target.style.background = '';    
 
 }, true);
-
 
 
 /**--resize event--*/
