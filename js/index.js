@@ -2,16 +2,16 @@
 
 /*--button manipulation--*/
 
-// let count = 0;
 
 let button = document.querySelectorAll('.btn');
 console.log(button);
 
 
-button.forEach( b => {
+button.forEach((bttn) => {
 
-
-    b.addEventListener('mouseover', (e) => {
+    //Mouseover
+    
+    bttn.addEventListener('mouseover', (e) => {
     
         e.target.style.backgroundcolor = 'red' ;
 
@@ -21,18 +21,28 @@ button.forEach( b => {
 
   }, false);
 
-     b.addEventListenter('click', (e) => {
+    //Click
+
+     bttn.addEventListenter('click', (e) => {
 
          e.target.style.visibility = 'hidden';
-      } );
+      }, );
+
+      //Double Click 
+
+      bttn.addEventListener('dbclick' ,(e) =>{
+        return 'You clicked me!';
+      })
  
- }, );
+ },);
+
+ 
 
 /*--keydown--*/
 
 document.addEventListener('keydown', (e) => {
-
-    btn.textContent += ` ${e.code}`;
+    e.preventDefault();
+    button.textContent += ` ${e.code}`;
 
 }, );
 
@@ -41,25 +51,40 @@ document.addEventListener('keydown', (e) => {
 let para = document.querySelectorAll('p');
 console.log(para);
 
+function zoom(e) {
+  event.preventDefault();
 
+  scale += event.deltaY * -0.01;
+
+  // Restrict scale
+  scale = Math.min(Math.max(.125, scale), 4);
+
+  // Apply scale transform
+  para.style.transform = `scale(${scale})`;
+}
+
+let scale = 1;
+para.onwheel = zoom;
 
 
 /*--focus event--*/
 
-let nav = document.querySelector('nav');
-console.log(nav);
+let navBar = document.querySelector('.nav');
+console.log(navBar);
 
-nav.addEventListener('focusin', (e) => {
+navBar.addEventListener('focusin', (e) => {
   e.target.style.background = 'grey';    
 });
 
-nav.addEventListener('focusout', (e) => {
+navBar.addEventListener('focusout', (e) => {
   e.target.style.background = '';    
 
 }, true);
 
 
 /**--resize event--*/
+
+window.addEventListener('resize', reportWindowSize);
 
 
 
